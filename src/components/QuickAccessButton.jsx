@@ -13,7 +13,7 @@ export default function QuickAccessButton() {
             <MenuButton
                 as={IconButton}
                 position={'fixed'}
-                bottom={'20px'}
+                bottom={{ base: '65px', md: '20px' }}
                 right={'20px'}
                 zIndex={1}
                 icon={<FiZap size={'1.5em'} />}

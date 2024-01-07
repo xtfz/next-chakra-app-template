@@ -1,12 +1,20 @@
+import Appbar from '@/components/AppBar';
 import BorderedLayer from '@/components/BorderedLayer';
 import Layer from '@/components/Layer';
 import Sidebar from '@/components/Sidebar';
 import React from 'react';
-import { FiGrid, FiHome } from 'react-icons/fi';
+import { FiGrid, FiHome, FiSettings } from 'react-icons/fi';
 
 export default function DashboardPage() {
 	return (
 		<>
+			<Appbar
+				items={[
+					{ name: 'Home', icon: <FiHome />, href: '/', active: false },
+					{ name: 'Dashboard', icon: <FiGrid />, href: '/dashboard', active: true },
+					{ name: 'Settings', icon: <FiSettings />, href: '/settings', active: false }
+				]}
+			/>
 			<Sidebar
 				title={'This is a long long title lol'}
 				theme={'blue'}
