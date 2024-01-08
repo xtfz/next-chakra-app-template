@@ -1,4 +1,4 @@
-import Appbar from '@/components/AppBar';
+import Appbar from '@/components/Appbar';
 import BorderedLayer from '@/components/BorderedLayer';
 import FloatingButton from '@/components/FloatingButton';
 import Layer from '@/components/Layer';
