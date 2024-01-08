@@ -24,11 +24,11 @@ export default function Hero() {
                         lineHeight={'110%'}>
                         Welcome to <br />
                         <Text as={'span'} color={'green.400'}>
-                            NextJS + ChakraUI
+                            XTFZ UI Template
                         </Text>
                     </Heading>
                     <Text color={'gray.500'}>
-                        Uses the Next.js + Chakra-UI Template.
+                        Uses Next.js + Chakra-UI.
                     </Text>
                     <Stack
                         direction={'row'}
@@ -47,7 +47,7 @@ export default function Hero() {
                                 textDecor: 'none'
                             }}
                             target={'_blank'}
-                            href={'https://github.com/xtfz/next-chakra-app-template'}>
+                            href={'https://github.com/xtfz/ui-template'}>
                             Start Using Now
                         </Link>
                         <Link

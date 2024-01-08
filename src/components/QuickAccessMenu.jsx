@@ -5,7 +5,7 @@ import { Link } from '@chakra-ui/next-js';
 import { IconButton, Menu, MenuButton, MenuGroup, MenuItem, MenuList, useColorMode } from '@chakra-ui/react';
 import { FiMoon, FiSun, FiUser, FiZap } from 'react-icons/fi';
 
-export default function QuickAccessButton() {
+export default function QuickAccessMenu() {
     const { colorMode, toggleColorMode } = useColorMode();
 
     return (

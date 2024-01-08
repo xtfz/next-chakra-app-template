@@ -1,10 +1,10 @@
 'use client';
 
-import QuickAccessButton from '@/components/QuickAccessButton';
 import './globals.css';
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
+import QuickAccessMenu from '@/components/QuickAccessMenu';
 
 const theme = extendTheme({
     initialColorMode: 'dark',
@@ -43,7 +43,6 @@ export default function RootLayout({
                 <CacheProvider>
                     <ChakraProvider theme={theme}>
                         {children}
-                        <QuickAccessButton />
                     </ChakraProvider>
                 </CacheProvider>
             </body>

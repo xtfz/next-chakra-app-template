@@ -44,7 +44,7 @@ export default function Navbar() {
                         onClick={isOpen ? onClose : onOpen}
                     />
                     <HStack spacing={8} alignItems={'center'}>
-                        <Box>NextJS + Chakra UI</Box>
+                        <Box>XTFZ / UI Template</Box>
                         <HStack
                             as={'nav'}
                             spacing={4}

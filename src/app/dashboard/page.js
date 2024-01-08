@@ -1,9 +1,11 @@
 import Appbar from '@/components/AppBar';
 import BorderedLayer from '@/components/BorderedLayer';
+import FloatingButton from '@/components/FloatingButton';
 import Layer from '@/components/Layer';
 import Sidebar from '@/components/Sidebar';
+import { Flex } from '@chakra-ui/react';
 import React from 'react';
-import { FiGrid, FiHome, FiSettings } from 'react-icons/fi';
+import { FiGrid, FiHome, FiSettings, FiUser } from 'react-icons/fi';
 
 export default function DashboardPage() {
 	return (
@@ -12,31 +14,35 @@ export default function DashboardPage() {
 				items={[
 					{ name: 'Home', icon: <FiHome />, href: '/', active: false },
 					{ name: 'Dashboard', icon: <FiGrid />, href: '/dashboard', active: true },
-					{ name: 'Settings', icon: <FiSettings />, href: '/settings', active: false }
+					{ name: 'Settings', icon: <FiSettings />, href: '/settings', active: false },
+					{ name: 'Account', icon: <FiUser />, href: '/account', active: false },
 				]}
 			/>
+			<FloatingButton
+				icon={<FiHome />}
+				href={'/'}
+			>
+				Home
+			</FloatingButton>
 			<Sidebar
-				title={'This is a long long title lol'}
+				title={'Dashboard'}
 				theme={'blue'}
 				items={[
 					{ name: 'Home', icon: <FiHome />, href: '/', active: false },
 					{ name: 'Dashboard', icon: <FiGrid />, href: '/dashboard', active: true }
 				]}
 			>
-				This is your dashboard. On the left you can see the Dashboard Sidebar Items. On the top right are some default buttons and a User menu.
-
-				<Layer mt={2}>
-					This is the Layer from Layer.jsx
-				</Layer>
-
-				<BorderedLayer mt={2}>
-					This is the BorderedLayer from BorderedLayer.jsx
-				</BorderedLayer>
-
-				<Layer mt={6} _hover={{ opacity: 0.5 }}>
-					This is a layer with custom styling on hover (any props)
-				</Layer>
-
+				<Flex direction={{ base: 'column', md: 'row' }} gap={2} p={4}>
+					<Layer>
+						On the left you have a Sidebar. On the top you have the Navbar with a User Menu. On the bottom right, you have the Quick Access Menu or a Floating Button.
+					</Layer>
+					<Layer>
+						On mobile, the sidebar disappears. To open the sidebar you can click the 3-bars that appears on the navbar. Also an Appbar appears on smaller devices.
+					</Layer>
+					<Layer>
+						On mobile, you can slide right to open the sidebar, and then inside the sidebar you can slide left to close it.
+					</Layer>
+				</Flex>
 			</Sidebar>
 		</>
 	)

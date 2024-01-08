@@ -17,8 +17,11 @@ import {
     Tooltip,
     Divider,
     ButtonGroup,
+    MenuList,
+    MenuItem,
+    MenuGroup,
 } from '@chakra-ui/react';
-import { FiChevronLeft, FiChevronRight, FiMenu, FiX } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiGlobe, FiMenu, FiSettings, FiUser, FiX } from 'react-icons/fi';
 import { Link } from '@chakra-ui/next-js';
 import { useSwipeable } from 'react-swipeable';
 
@@ -74,7 +77,7 @@ export default function Sidebar({
                 </DrawerContent>
             </Drawer>
             <MobileNav onOpen={onOpen} title={title} user={user} theme={theme} />
-            <Box ml={{ base: 0, md: 20 }} p='8' color={useColorModeValue('black', 'white')} {...contentSwipeHandler} {...props}>
+            <Box ml={{ base: 0, md: 20 }} mb={{ base: '120px', md: 0 }} p='8' color={useColorModeValue('black', 'white')} {...contentSwipeHandler} {...props}>
                 {children}
             </Box>
         </Box>
@@ -171,12 +174,13 @@ const MobileNav = ({ title, theme = 'green', user = { name: null, email: null, a
         <Flex
             ml={{ base: 0, md: 20 }}
             px={{ base: 4, md: 4 }}
-            height='20'
-            alignItems='center'
+            h={{ base: 16, md: 20 }}
             bg={useColorModeValue('white', 'gray.900')}
             borderBottomWidth='1px'
             borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-            justifyContent={{ base: 'space-between', md: 'space-between' }}
+            justify={{ base: 'space-between', md: 'space-between' }}
+            align={'center'}
+            gap={2}
             boxShadow={'sm'}
             {...rest}>
             <IconButton
@@ -185,14 +189,15 @@ const MobileNav = ({ title, theme = 'green', user = { name: null, email: null, a
                 variant='ghost'
                 colorScheme={theme}
                 aria-label='Open Sidebar'
-                icon={<FiMenu size={'2em'} />}
+                icon={<FiMenu size={'1.5em'} />}
             />
 
             <Text
                 display={'flex'}
-                fontSize='2xl'
+                fontSize={{ base: 'lg', md: '2xl' }}
                 fontWeight='semibold'
-                lineHeight={1.1}
+                lineHeight={1.5}
+                noOfLines={1}
             >
                 {title || 'Dashboard'}
             </Text>
@@ -200,21 +205,26 @@ const MobileNav = ({ title, theme = 'green', user = { name: null, email: null, a
             <HStack spacing={{ base: '0', md: '6' }}>
                 <Flex alignItems={'center'}>
                     <Menu>
-                        <Tooltip label={user.email?.length > 0 ? `Logged in as ${user.email}` : `Login to view your profile`} placement={'auto-end'} hasArrow>
+                        <Tooltip label={'Toggle User Menu'} placement={'bottom-end'} hasArrow>
                             <MenuButton
                                 py={2}
                                 transition='all 0.3s'
                                 _focus={{ boxShadow: 'none' }}
-                                as={Link} href={user.email?.length > 0 ? `/account` : '/authenticate'}
                             >
-
                                 <Avatar
                                     size={'sm'}
-                                    src={user.avatar}
+                                    src={user?.avatar}
                                     background={`${theme}.500`}
                                 />
                             </MenuButton>
                         </Tooltip>
+                        <MenuList>
+                            <MenuGroup title={'User'}>
+                                <MenuItem as={Link} href={'/account'} icon={<FiUser />}>Your Account</MenuItem>
+                                <MenuItem as={Link} href={'/profile'} icon={<FiGlobe />}>View Profile</MenuItem>
+                                <MenuItem as={Link} href={'/settings'} icon={<FiSettings />}>Settings</MenuItem>                               
+                            </MenuGroup>
+                        </MenuList>
                     </Menu>
                 </Flex>
             </HStack>
